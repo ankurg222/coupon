@@ -56,10 +56,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip()
     if not cookies:  # First message = cookies
         cookies = text
-        await update.message.reply_text("✅ Cookies set! Now send vouchers.
-Ex:
-SVH123456
-SVD789012")
+        await update.message.reply_text("✅ Cookies set! Now send vouchers.")
         return
     
     # Parse vouchers
