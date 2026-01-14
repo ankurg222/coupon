@@ -22,8 +22,7 @@ def format_cookies(raw_cookies):
     """Clean & format cookie string"""
     raw = raw_cookies.strip()
     # Remove newlines, extra spaces
-    raw = re.sub(r'[
-s]+', ' ', raw)
+    raw = re.sub(r'[s]+', ' ', raw)
     return raw
 
 def get_headers(cookie_str):
