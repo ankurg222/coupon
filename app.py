@@ -88,9 +88,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
                      headers=headers)
     
     copy_text = ''.join(valid)
-    msg = f"✅ {len(valid)} VALID | ₹{total:,}
-
-" + ''.join(results[:15])
+    msg = f"✅ {len(valid)} VALID | ₹{total:,}" + ''.join(results[:15])
     if valid:
         msg += f"📋 Copy:
 ```{copy_text}```"
