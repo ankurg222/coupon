@@ -69,16 +69,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global cookies
     if not cookies:
         await update.message.reply_text(
-            "🔑 **Get SHEIN Cookies**:
-
-"
-            "1. sheinindia.in → F12 → Application tab
-"
-            "2. Storage → Cookies → https://www.sheinindia.in
-"
-            "3. Ctrl+A → Copy ALL cookies
-
-"
+            "🔑 **Get SHEIN Cookies**:"
+            "1. sheinindia.in → F12 → Application tab"
+            "2. Storage → Cookies → https://www.sheinindia.in"
+            "3. Ctrl+A → Copy ALL cookies"
             "Paste here 👇",
             parse_mode='Markdown'
         )
@@ -98,29 +92,22 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         if is_valid:
             await update.message.reply_text(
-                f"✅ **Cookies VALID!**
-{status}
-
-"
+                f"✅ **Cookies VALID!**{status}"
                 "Send vouchers now:
 `SVH123456`
-`SVD789012`",
-                parse_mode='Markdown'
+`SVD789012`",parse_mode='Markdown'
             )
         else:
             await update.message.reply_text(
                 f"❌ **Cookies FAILED**
-{status}
-
-"
+{status}"
                 "Refresh page → recopy → retry",
                 parse_mode='Markdown'
             )
         return
     
     # Process vouchers
-    vouchers = [line.strip() for line in text.split('
-') if line.strip()]
+    vouchers = [line.strip() for line in text.split(\n') if line.strip()]
     if not vouchers:
         await update.message.reply_text("❌ No voucher codes.")
         return
@@ -156,28 +143,17 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 headers=headers, timeout=5)
         except: pass
     
-    copy_text = '
-'.join(valid)
-    out = f"✅ **{len(valid)} VALID** | **₹{total:,}**
-
-"
-    out += '
-'.join(results[:25])
+    copy_text = ''.join(valid)
+    out = f"✅ **{len(valid)} VALID** | **₹{total:,}**"
+    out += ''.join(results[:25])
     
     if valid:
-        out += f"
-
-📋 **Copy:**
-```{copy_text}```"
+        out += f"📋**Copy:**```{copy_text}```"
     else:
-        out += "
-
-😔 No working vouchers."
+        out += "😔 No working vouchers."
     
     if errors:
-        out += f"
-
-⚠️ {errors} API errors"
+        out += f"⚠️ {errors} API errors"
     
     await msg.edit_text(out, parse_mode='Markdown')
 
