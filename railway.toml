@@ -1,0 +1,6 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "pip install -r requirements.txt --no-cache-dir"
+
+[deploy]
+startCommand = "python app.py"
