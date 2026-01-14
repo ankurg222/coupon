@@ -60,8 +60,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
     # Parse vouchers
-    vouchers = [line.strip() for line in text.split('
-') if line.strip()]
+    vouchers = [line.strip() for line in text.split('') if line.strip()]
     if not vouchers:
         await update.message.reply_text("❌ No codes found.")
         return
