@@ -87,16 +87,12 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
                      json={"voucherId": code, "device": {"client_type": "web"}}, 
                      headers=headers)
     
-    copy_text = '
-'.join(valid)
+    copy_text = ''.join(valid)
     msg = f"✅ {len(valid)} VALID | ₹{total:,}
 
-" + '
-'.join(results[:15])
+" + ''.join(results[:15])
     if valid:
-        msg += f"
-
-📋 Copy:
+        msg += f"📋 Copy:
 ```{copy_text}```"
     else:
         msg += "
