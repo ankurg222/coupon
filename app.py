@@ -90,11 +90,9 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     copy_text = ''.join(valid)
     msg = f"✅ {len(valid)} VALID | ₹{total:,}" + ''.join(results[:15])
     if valid:
-        msg += f"📋 Copy:
-```{copy_text}```"
+        msg += f"📋 Copy:```{copy_text}```"
     else:
-        msg += "
-😔 No working vouchers."
+        msg += "😔 No working vouchers."
     
     await update.message.reply_text(msg, parse_mode='Markdown')
 
