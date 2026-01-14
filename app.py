@@ -92,12 +92,11 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         if is_valid:
             await update.message.reply_text(
-                f"✅ **Cookies VALID!**{status}"
+                f"✅ **Cookies VALID **{status}"
                 "Send vouchers now:")
         else:
             await update.message.reply_text(
-                f"❌ **Cookies FAILED**
-{status}"
+                f"❌ **Cookies FAILED** {status}"
                 "Refresh page → recopy → retry",
                 parse_mode='Markdown'
             )
