@@ -73,7 +73,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         data = requests.post(
             "https://www.sheinindia.in/api/cart/apply-voucher",
             json={"voucherId": code, "device": {"client_type": "web"}},
-            headers=headers, timeout=10
+            headers=headers, timeout=12
         ).json()
         status, value = classify_response(data)
         value = get_value(code) or value
